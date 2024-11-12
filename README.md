@@ -73,3 +73,10 @@ Ensure you have **Node.js** and **Yarn** installed.
 3. To run the project locally:
     yarn dev
 
+
+Here are the screenshots:
+1.crop average yield production : https://github.com/Deepanshu-Chopra/agriculture-analysis/blob/main/src/assets/CropAvYieldAndCultivation.png
+2.Crop production analysis : https://github.com/Deepanshu-Chopra/agriculture-analysis/blob/main/src/assets/CropProductionAnalysis.png
+
+
+
