@@ -2,6 +2,9 @@ import  { useEffect, useState } from 'react';
 import { Table } from '@mantine/core';
 import IndiaAgroDataset from '../data/IndiaAgroDataset.json';
 
+/* The  interface is defining a type structure for an object that represents crop
+data. */
+
 interface CropData {
   Year: string;
   CropName: string;
@@ -12,10 +15,19 @@ interface CropData {
 const parseCropProductionData = () => {
   const yearMap: { [key: string]: { max: CropData; min: CropData } } = {};
 
-  IndiaAgroDataset.forEach((entry: any) => {
+  /* it is iterating over
+each entry in the `IndiaAgroDataset` and extracting the
+`Year`, `Crop Production`, and `Crop Name` data from each
+entry. */
+  IndiaAgroDataset.forEach((entry: any
+  ) => {
     const year = entry.Year;
     const cropProduction = entry["Crop Production (UOM:t(Tonnes))"] || 0;
     const cropName = entry["Crop Name"];
+
+/* it is responsible for
+processing the data from the `IndiaAgroDataset` and finding the maximum and minimum crop production
+for each year. */
 
     if (!yearMap[year]) {
       yearMap[year] = {

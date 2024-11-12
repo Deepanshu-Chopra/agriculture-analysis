@@ -2,6 +2,7 @@ import  { useEffect, useState } from 'react';
 import { Table } from '@mantine/core';
 import IndiaAgroDataset from '../data/IndiaAgroDataset.json';
 
+/* The  interface is defining a type structure for an object that represents CropStats. */
 interface CropStats {
   cropName: string;
   totalYield: number;
@@ -17,7 +18,10 @@ const calculateAverageCropData = () => {
     const yieldValue = entry["Yield Of Crops (UOM:Kg/Ha(KilogramperHectare))"] || 0;
     const areaValue = entry["Area Under Cultivation (UOM:Ha(Hectares))"] || 0;
 
-    if (!cropMap[cropName]) {
+    /* This part of the code is responsible for calculating the average yield and
+  cultivation area for each crop in the dataset. */
+    if (!cropMap[
+    cropName]) {
       cropMap[cropName] = {
         cropName,
         totalYield: yieldValue,
@@ -41,7 +45,11 @@ const calculateAverageCropData = () => {
 export const CropAverageTable = () => {
   const [data, setData] = useState<{ cropName: string; avgYield: string; avgArea: string }[]>([]);
 
-  useEffect(() => {
+  /* The code inside the useEffect hook with an empty dependency array is responsible for triggering the
+calculation of average crop data and updating the state variable `data` with the
+result . */
+  useEffect(() => 
+  {
     setData(calculateAverageCropData());
   }, []);
 
